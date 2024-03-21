@@ -1,23 +1,28 @@
-import logo from './logo.svg';
+import { Tree } from './components/Tree';
+import { Help } from './components/Help';
+import { Info } from './components/Info'
+import * as data from './data/mega_beers.json';
+import { useState } from 'react';
 import './App.css';
 
 function App() {
+  const [currentBeer, setCurrentBeer] = useState(null)
+  
+  function updateBeer(beer) {
+    if (typeof(beer) == 'string') {
+      setCurrentBeer(beer)
+    } 
+  }
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Help />
       </header>
+      <section className="Main">
+        <Info data={data} selectedBeer={currentBeer}/>
+        <Tree data={data} setBeer={updateBeer}/>
+      </section>
     </div>
   );
 }
