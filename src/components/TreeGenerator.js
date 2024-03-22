@@ -72,34 +72,34 @@ export function runTree(container, nodes, links, onclick) {
 
         let prevSelection = null
         let selected = null
-        // there's probably a more concise way to do this, but it works for now
-        // also styling is ugly but that's a problem for later griff
         function clickHandler(clicked) {
-          onclick(clicked.target.id)
           selected = clicked.target.id;
+          onclick(selected)
+  
           const nodes = d3.selectAll('circle')._groups[0]
           const labels = d3.selectAll('text')._groups[0]
+          let nodeToChange, labelToChange;
           if (clicked.target.nodeName === 'circle') {
-            clicked.target.setAttribute('stroke', '#000')
-            clicked.target.setAttribute('stroke-width', 6)
-
+            nodeToChange = clicked.target;
             for (let label of labels) {
               if (label.id === selected) {
-                label.setAttribute('font-weight', 'bold')
+                labelToChange = label
                 break;
               }
             }
           } else if (clicked.target.nodeName === 'text') {
-            clicked.target.setAttribute('font-weight', 'bold');
+            labelToChange = clicked.target;
 
             for (let node of nodes) {
               if (node.id === selected) {
-                node.setAttribute('stroke', '#000')
-                node.setAttribute('stroke-width', 6)
+                nodeToChange = node;
                 break
               }
             }
           }
+          nodeToChange.setAttribute('stroke', '#000')
+          nodeToChange.setAttribute('stroke-width', 6)
+          labelToChange.setAttribute('font-weight', 'bold')
 
           if (prevSelection !== null) {  
             for (let node of nodes) {

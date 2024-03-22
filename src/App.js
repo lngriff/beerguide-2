@@ -21,7 +21,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-      <button className="help" onClick={() => setHelpOpen(toggleVisibility)}>Help</button>
+        <button onClick={() => setHelpOpen(toggleVisibility)}>Help</button>
       </header>
       <section className="Main">
         <Tree data={data} setBeer={updateBeer}/>

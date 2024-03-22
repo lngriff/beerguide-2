@@ -28,8 +28,8 @@
 }
 
 .helpbox {
-  max-width: 60%;
-  max-height: 60%;
+  width: 60%;
+  height: 60%;
   position: relative;
   background-color: white;
   border-style: solid;
@@ -37,4 +37,5 @@
   border-color: black;
   z-index: 1000;
   overflow-y: scroll;
+  float: right;
 }
