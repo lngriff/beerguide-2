@@ -1,13 +1,22 @@
 import { useState } from "react";
 import Draggable from "react-draggable";
+import vocab from '../data/vocab.json';
 
 export function Help({visible}) {
     const [displayText, setDisplayText] = useState(null)
 
+
     function findText(id) {
         switch (id) {
             case 'vocab':
-                return (<p>beer words</p>)
+                return (<p>
+                    {vocab.vocab.map(word => {
+                        return (
+                        <span key={word.word}>
+                        <b>{word.word}:</b> {word.def} <br /> <br />
+                        </span>)
+                    })}
+                </p>)
             case 'glass':
                 return (<p>drink beer from a cup</p>)
             case 'faq':

@@ -28,8 +28,9 @@
 }
 
 .helpbox {
+  padding: 0px 10px 10px 10px;
   width: 60%;
-  height: 60%;
+  height: 70vh;
   position: relative;
   background-color: white;
   border-style: solid;

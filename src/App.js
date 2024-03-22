@@ -8,7 +8,7 @@ import './App.css';
 function App() {
   const [currentBeer, setCurrentBeer] = useState(null)
   const [helpOpen, setHelpOpen] = useState(false)
-  
+
   function updateBeer(beer) {
     if (typeof(beer) == 'string') {
       setCurrentBeer(beer)
@@ -18,6 +18,7 @@ function App() {
   function toggleVisibility() {
     return !helpOpen
   }
+
   return (
     <div className="App">
       <header className="App-header">

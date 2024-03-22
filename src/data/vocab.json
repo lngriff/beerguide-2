@@ -1,0 +1,32 @@
+{
+    "vocab": [
+        {
+            "word": "Malt",
+            "def": "Refers to malted grains, which are grains which have been partially allowed to germinate. The malt provides the starch source for fermentation. Malt in beer is typically malted "
+        },
+        {
+            "word": "Hops",
+            "def": "A type of flower used in the flavoring of beer. Hops were originally used for their preservative properties but have since been cultivated into hundreds of variations with unique flavors made to enhance beer. Hops are responsible for for the bitter taste of beer."
+        },
+        {
+            "word": "Adjunct",
+            "def": "An unmalted grain (such as wheat, rye, oats, corn, or rice) which is added alongside the malt as a supplement. Sometimes this is done in order to cut costs (like in mass-produced or light beers, which often contain a lot of corn and/or rice) and in other cases is used to create a different flavor or change properties of the beer (as in wheat or rye beers"
+        },
+        {
+            "word": "Session",
+            "def": "Though there is no accepted or official definition, a session (or sessionable) beer is generally considered to be an \"all day drinking\" kind of beer. It is a brew that is not particularly bitter and has an ABV at or around 5. Session beers are supposed to be light and easy to drink, so that you can enjoy several during a \"session\" of drinking."
+        },
+        {
+            "word":"IBU",
+            "def": "Stands for International Bittering Units (sometimes called International Bitterness Units), which is the measurement of actual bitterness of beer based on the amount of alpha acid contributed by the hops. Apparent bitterness will vary based on personal taste, but an IBU <20 generally corresponds to very little hop flavor and >45 means a lot of hop taste."
+        },
+        {
+            "word": "ABV",
+            "def": "Stands for Alcohol by Volume, which indicates how much of the beer is alcohol. ABV is measured as a percentage and the higher the number the more alcoholic the beer. Beers that have high ABV are sometimes referred to as \"high gravity\"."
+        },
+        {
+            "word": "SRM",
+            "def": "Stands for Scientific Reference Method, the scale for determining the color of a beer based on how much of a certain wavelength of light passes through a set amount of the liquid. The colors of nodes here are based on average SRM for each style."
+        }
+    ]
+}
