@@ -4,7 +4,6 @@ import { runTree } from "./TreeGenerator";
 export function Tree({data, setBeer}) {
     const containerRef = useRef(null);
 
-
     useEffect(() => {
       let destroyFn;
 

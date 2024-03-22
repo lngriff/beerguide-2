@@ -7,13 +7,11 @@ export function Info({data, selectedBeer}) {
     const [displayText, setDisplayText] = useState(null)
     const [prevBeer, setBeerChanged] = useState(null)
 
-    console.log(`infos current beer ${selectedBeer}`)
     // the fact that this runs each time this re-renders is uh. bad. lol.
     // will fix it once I decide on new data structure
     const beers = data.nodes.map(d => ({...d}))
 
     function findText(id) {
-        console.log(id)
         const text = beers.find(beer => beer.id === selectedBeer)
         if (text) {
             // need to include a swatch for the SRM and an icon for the glass or smthn
@@ -29,6 +27,7 @@ export function Info({data, selectedBeer}) {
                 case 'ex1':
                     return (
                         <p>
+                            <b>Style:</b> {text.label} <br />
                             <b>Name:</b> {text.EX_1} <br />
                             <b>Brewery:</b> {text.BREWERY_1} <br />
                             <b>ABV:</b> {text.ABV_1} <br />
@@ -37,10 +36,10 @@ export function Info({data, selectedBeer}) {
                             <b>Description:</b> Do we need description here? Idk what else to do with this.
                         </p>
                     )
-                    
                 case 'ex2':
                     return (
                         <p>
+                            <b>Style:</b> {text.label} <br />
                             <b>Name:</b> {text.EX_2} <br />
                             <b>Brewery:</b> {text.BREWERY_2} <br />
                             <b>ABV:</b> {text.ABV_2} <br />
@@ -52,6 +51,7 @@ export function Info({data, selectedBeer}) {
                 case 'ex3':
                     return (
                         <p>
+                            <b>Style:</b> {text.label} <br />
                             <b>Name:</b> {text.EX_3} <br />
                             <b>Brewery:</b> {text.BREWERY_3} <br />
                             <b>ABV:</b> {text.ABV_3} <br />
@@ -60,8 +60,9 @@ export function Info({data, selectedBeer}) {
                             <b>Description:</b> Do we need description here? Idk what else to do with this.
                         </p>
                     )
+                case 'min':
                 default:
-                    return 'oh no help'
+                    return (<p></p>)
             }
         }
     }
@@ -70,7 +71,6 @@ export function Info({data, selectedBeer}) {
     // and update the text there
     if (selectedBeer !== prevBeer) {
         setBeerChanged(selectedBeer)
-        console.log('changing beer')
         setDisplayText(findText('beerInfo'))
     }
 
@@ -98,5 +98,7 @@ const infotabs = [
     {id: 'beerInfo', name: 'Style'},
     {id: 'ex1', name: 'Ex 1'},
     {id: 'ex2', name: 'Ex 2'},
-    {id: 'ex3', name: 'Ex 3'}
+    {id: 'ex3', name: 'Ex 3'},
+    // is there an icon for this or smthn
+    {id: 'min', name: 'min'}
 ]

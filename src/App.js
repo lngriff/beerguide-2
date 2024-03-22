@@ -7,6 +7,7 @@ import './App.css';
 
 function App() {
   const [currentBeer, setCurrentBeer] = useState(null)
+  const [helpOpen, setHelpOpen] = useState(false)
   
   function updateBeer(beer) {
     if (typeof(beer) == 'string') {
@@ -14,14 +15,18 @@ function App() {
     } 
   }
 
+  function toggleVisibility() {
+    return !helpOpen
+  }
   return (
     <div className="App">
       <header className="App-header">
-        <Help />
+      <button className="help" onClick={() => setHelpOpen(toggleVisibility)}>Help</button>
       </header>
       <section className="Main">
-        <Info data={data} selectedBeer={currentBeer}/>
         <Tree data={data} setBeer={updateBeer}/>
+        <Help visible={helpOpen}/>
+        <Info data={data} selectedBeer={currentBeer}/>
       </section>
     </div>
   );

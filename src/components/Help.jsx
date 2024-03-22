@@ -1,18 +1,37 @@
 import { useState } from "react";
 import Draggable from "react-draggable";
 
-export function Help() {
-    const [visible, setVisible] = useState(null);
-    // have help spawn in the corner I guess..?
-    // and then on minimize maybe it snaps back...? idk...
+export function Help({visible}) {
+    const [displayText, setDisplayText] = useState(null)
+
+    function findText(id) {
+        switch (id) {
+            case 'vocab':
+                return (<p>beer words</p>)
+            case 'glass':
+                return (<p>drink beer from a cup</p>)
+            case 'faq':
+                return (<p>q: why did u make this in tyol 2024 a: idk i still like beer even if it isnt cool anymore</p>)
+            case 'beer101':
+            default:
+                return (<p>did u kno: beer made from grain, water, hop, yeast</p>)
+        }
+    }
+
     return (
         <Draggable>
-            <div>
-        <button onClick={() => setVisible(!visible)}>
-            help : {!visible ? "closed" : "open"}
-        </button>
-        {visible ? < HelpBox /> : null}
-    </div>
+                {visible ? <div className="helpbox">
+                    <div className="helpnav">
+                        {helptabs.map((tab) => {
+                            return (
+                                <button className="helptab" onClick={() => {setDisplayText(findText(tab.id))}} key={tab.id}>
+                                    {tab.name}
+                                </button>
+                            )                    
+                        })}
+                    </div>
+                    {displayText}
+                </div> : <div></div>}
         </Draggable>
     
     )
@@ -26,22 +45,3 @@ const helptabs = [
     {id: 'faq', name: 'FAQ'}
 ]
 
-const HelpBox = () => {
-    const [displayText, setDisplayText] = useState(null)
-
-    return (
-        <div className="helpbox">
-            <div className="helpnav">
-                {helptabs.map((tab) => {
-                    return (
-                        <button className="helptab" onClick={() => {setDisplayText(tab.id)}} key={tab.id}>
-                            {tab.name}
-                        </button>
-                    )              
-                })}
-            </div>
-            <p className="text">{displayText}</p>
-    </div>
-    )
-
-}
