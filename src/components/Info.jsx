@@ -16,15 +16,50 @@ export function Info({data, selectedBeer}) {
         console.log(id)
         const text = beers.find(beer => beer.id === selectedBeer)
         if (text) {
+            // need to include a swatch for the SRM and an icon for the glass or smthn
             switch(id) {
                 case 'beerInfo':
-                    return text.DESC
+                    return (
+                        <p>
+                            <b>Name:</b> {text.label} <br/>
+                            <b>ABV:</b> {text.ABV} <br />
+                            <b>IBU:</b> {text.IBU} <br />
+                            <b>Description:</b> {text.DESC} <br />
+                        </p>)
                 case 'ex1':
-                    return 'ex1'
+                    return (
+                        <p>
+                            <b>Name:</b> {text.EX_1} <br />
+                            <b>Brewery:</b> {text.BREWERY_1} <br />
+                            <b>ABV:</b> {text.ABV_1} <br />
+                            <b>IBU:</b> {text.IBU_1} <br />
+                            <b>Region:</b> {text.REGION_1} <br />
+                            <b>Description:</b> Do we need description here? Idk what else to do with this.
+                        </p>
+                    )
+                    
                 case 'ex2':
-                    return 'ex2'
+                    return (
+                        <p>
+                            <b>Name:</b> {text.EX_2} <br />
+                            <b>Brewery:</b> {text.BREWERY_2} <br />
+                            <b>ABV:</b> {text.ABV_2} <br />
+                            <b>IBU:</b> {text.IBU_2} <br />
+                            <b>Region:</b> {text.REGION_2} <br />
+                            <b>Description:</b> Do we need description here? Idk what else to do with this.
+                        </p>
+                    )
                 case 'ex3':
-                    return 'ex3'
+                    return (
+                        <p>
+                            <b>Name:</b> {text.EX_3} <br />
+                            <b>Brewery:</b> {text.BREWERY_3} <br />
+                            <b>ABV:</b> {text.ABV_3} <br />
+                            <b>IBU:</b> {text.IBU_3} <br />
+                            <b>Region:</b> {text.REGION_3} <br />
+                            <b>Description:</b> Do we need description here? Idk what else to do with this.
+                        </p>
+                    )
                 default:
                     return 'oh no help'
             }
@@ -51,7 +86,7 @@ export function Info({data, selectedBeer}) {
                         )              
                     })}
                 </div>
-                <p className="text">{displayText}</p>
+                {displayText}
             </div>
         </Draggable>
         
