@@ -4,8 +4,8 @@ import vocabJSON from '../data/vocab.json';
 import faqJSON from '../data/faq.json';
 
 export function Help({visible}) {
-    const [displayText, setDisplayText] = useState('beer101')
-    const [activeTab, setActiveTab] = useState('beer101')
+    const [displayText, setDisplayText] = useState(<p>Click on a tab for more info.</p>)
+    const [activeTab, setActiveTab] = useState(null)
 
     function setTextAndTab(id) {
         setActiveTab(id)
@@ -20,7 +20,7 @@ export function Help({visible}) {
                     })}
                 </p>)
             case 'glass':
-                return (<p>drink beer from a cup</p>)
+                return (<p>drink beer from a cup. or don't! i'm not the boss of you.</p>)
             case 'faq':
                 return (<p>
                     {faqJSON.map(q => {

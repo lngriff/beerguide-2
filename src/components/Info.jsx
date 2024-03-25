@@ -60,7 +60,7 @@ export function Info({data, selectedBeer}) {
                     )
                 case 'min':
                 default:
-                    return (<p></p>)
+                    return ('')
             }
         }
     }
