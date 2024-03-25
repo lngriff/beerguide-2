@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Draggable from "react-draggable";
-import vocab from '../data/vocab.json';
+import vocabJSON from '../data/vocab.json';
+import faqJSON from '../data/faq.json';
 
 export function Help({visible}) {
     const [displayText, setDisplayText] = useState(null)
@@ -10,7 +11,7 @@ export function Help({visible}) {
         switch (id) {
             case 'vocab':
                 return (<p>
-                    {vocab.vocab.map(word => {
+                    {vocabJSON.vocab.map(word => {
                         return (
                         <span key={word.word}>
                         <b>{word.word}:</b> {word.def} <br /> <br />
@@ -20,7 +21,17 @@ export function Help({visible}) {
             case 'glass':
                 return (<p>drink beer from a cup</p>)
             case 'faq':
-                return (<p>q: why did u make this in tyol 2024 a: idk i still like beer even if it isnt cool anymore</p>)
+                return (<p>
+                    {faqJSON.map(q => {
+                        return (
+                            <span>
+                                <b>Q: {q.question}</b> <br />
+                                A: {q.answer}
+                                <br />
+                            </span>
+                        )
+                    })}
+                </p>)
             case 'beer101':
             default:
                 return (<p>did u kno: beer made from grain, water, hop, yeast</p>)

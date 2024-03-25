@@ -1,5 +1,6 @@
 import { useRef, useEffect } from "react";
 import { runTree } from "./TreeGenerator";
+import linkJSON from '../data/links.json'
 
 export function Tree({data, setBeer}) {
     const containerRef = useRef(null);
@@ -8,7 +9,7 @@ export function Tree({data, setBeer}) {
       let destroyFn;
 
       const nodes = data.nodes.map((d) => ({...d}));
-      const links = data.links.map((d) => ({...d}));
+      const links = linkJSON.links.map((d) => ({...d}));
 
       if (containerRef.current) {
         const { destroy } = runTree(containerRef.current, nodes, links, setBeer);
