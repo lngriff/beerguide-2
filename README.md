@@ -1,5 +1,5 @@
 # Beer Guide v2
-A lil info viz widget about beer, inspired by Ishkur's Guide to Electronic Music (the old flash version) a poster I saw at a friend's house once. v1 was done in 2014-15.
+A lil info viz widget about beer, inspired by Ishkur's Guide to Electronic Music (the old flash version) and a poster I saw at a friend's house once. v1 was done in 2014-15.
 
 ## TODO:
 * Refresh data (this stuff is from 2015! We hadn't even invented hazy IPAs yet! better times tbh)
