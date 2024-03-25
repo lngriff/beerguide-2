@@ -41,17 +41,19 @@ export function Help({visible}) {
 
     return (
         <Draggable>
-                {visible ? <div className="helpbox">
-                    <div className="helpnav">
+                {visible ? <div id="helpbox">
+                    <div id="helpnav">
                         {helptabs.map((tab) => {
                             return (
-                                <button  className={activeTab === tab.id ? 'active' : 'infotab'} onClick={() => {setDisplayText(setTextAndTab(tab.id))}} key={tab.id}>
+                                <button className={activeTab === tab.id ? 'active' : 'infotab'} onClick={() => {setDisplayText(setTextAndTab(tab.id))}} key={tab.id}>
                                     {tab.name}
                                 </button>
                             )                    
                         })}
                     </div>
-                    {displayText}
+                    <div className="textBox">
+                        {displayText}
+                    </div>
                 </div> : <div></div>}
         </Draggable>
     

@@ -74,8 +74,8 @@ export function Info({data, selectedBeer}) {
 
     return (
         <Draggable>
-            <div className="infobox">
-                <div className="infonav">
+            <div id="infobox">
+                <div id="infonav">
                     {infotabs.map((tab) => {
                         return (
                             <button id={tab.id} className={activeTab === tab.id ? 'active' : 'infotab'} onClick={() => setDisplayText(setTextAndTab(tab.id))} key={tab.id}>
@@ -84,7 +84,9 @@ export function Info({data, selectedBeer}) {
                         )              
                     })}
                 </div>
-                {displayText}
+                <div className="textBox">
+                        {displayText}
+                    </div>
             </div>
         </Draggable>
         

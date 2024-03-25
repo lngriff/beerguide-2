@@ -121,7 +121,7 @@ export function runTree(container, nodes, links, onclick) {
           prevSelection = selected;
         }
     
-    // TODO add drag, zoom
+    // TODO add drag, zoom?
     simulation.on('tick', () => {
         //update link positions
         link
