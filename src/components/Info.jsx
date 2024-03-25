@@ -6,15 +6,13 @@ import Draggable from 'react-draggable';
 export function Info({data, selectedBeer}) {
     const [displayText, setDisplayText] = useState(null)
     const [prevBeer, setBeerChanged] = useState(null)
+    const [activeTab, setActiveTab] = useState('min')
 
-    // the fact that this runs each time this re-renders is uh. bad. lol.
-    // will fix it once I decide on new data structure
-    const beers = data.nodes.map(d => ({...d}))
 
-    function findText(id) {
-        const text = beers.find(beer => beer.id === selectedBeer)
+    function setTextAndTab(id) {
+        const text = data.find(beer => beer.id === selectedBeer)
         if (text) {
-            // need to include a swatch for the SRM and an icon for the glass or smthn
+            setActiveTab(id)
             switch(id) {
                 case 'beerInfo':
                     return (
@@ -71,7 +69,7 @@ export function Info({data, selectedBeer}) {
     // and update the text there
     if (selectedBeer !== prevBeer) {
         setBeerChanged(selectedBeer)
-        setDisplayText(findText('beerInfo'))
+        setDisplayText(setTextAndTab('beerInfo'))
     }
 
     return (
@@ -80,7 +78,7 @@ export function Info({data, selectedBeer}) {
                 <div className="infonav">
                     {infotabs.map((tab) => {
                         return (
-                            <button className="infotab" onClick={() => setDisplayText(findText(tab.id))} key={tab.id}>
+                            <button id={tab.id} className={activeTab === tab.id ? 'active' : 'infotab'} onClick={() => setDisplayText(setTextAndTab(tab.id))} key={tab.id}>
                                 {tab.name}
                             </button>
                         )              

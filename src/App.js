@@ -1,13 +1,15 @@
 import { Tree } from './components/Tree';
 import { Help } from './components/Help';
 import { Info } from './components/Info'
-import * as data from './data/mega_beers.json';
+import data from './data/mega_beers.json';
 import { useState } from 'react';
 import './App.css';
 
 function App() {
   const [currentBeer, setCurrentBeer] = useState(null)
   const [helpOpen, setHelpOpen] = useState(false)
+  
+  const parsedData = data.nodes.map((d) => ({...d}))
 
   function updateBeer(beer) {
     if (typeof(beer) == 'string') {
@@ -27,7 +29,7 @@ function App() {
       <section className="Main">
         <Tree data={data} setBeer={updateBeer}/>
         <Help visible={helpOpen}/>
-        <Info data={data} selectedBeer={currentBeer}/>
+        <Info data={parsedData} selectedBeer={currentBeer}/>
       </section>
     </div>
   );

@@ -8,8 +8,8 @@ export function Tree({data, setBeer}) {
     useEffect(() => {
       let destroyFn;
 
-      const nodes = data.nodes.map((d) => ({...d}));
       const links = linkJSON.links.map((d) => ({...d}));
+      const nodes = data.nodes.map((d) => ({...d}))
 
       if (containerRef.current) {
         const { destroy } = runTree(containerRef.current, nodes, links, setBeer);
@@ -17,8 +17,8 @@ export function Tree({data, setBeer}) {
       }
       return destroyFn;
       // tired of the dependency warning here but adding setBeer to the deps makes this thing re-render each time
-    }, [data.links, data.nodes]);
+    }, [data]);
 
-    return <div ref={containerRef} className="container"/>;
+    return <div ref={containerRef} id="container"/>;
   }
 

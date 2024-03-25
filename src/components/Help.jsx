@@ -4,10 +4,11 @@ import vocabJSON from '../data/vocab.json';
 import faqJSON from '../data/faq.json';
 
 export function Help({visible}) {
-    const [displayText, setDisplayText] = useState(null)
+    const [displayText, setDisplayText] = useState('beer101')
+    const [activeTab, setActiveTab] = useState('beer101')
 
-
-    function findText(id) {
+    function setTextAndTab(id) {
+        setActiveTab(id)
         switch (id) {
             case 'vocab':
                 return (<p>
@@ -34,7 +35,7 @@ export function Help({visible}) {
                 </p>)
             case 'beer101':
             default:
-                return (<p>did u kno: beer made from grain, water, hop, yeast</p>)
+                return (<p>did u kno: beer made from malt, water, hop, yeast</p>)
         }
     }
 
@@ -44,7 +45,7 @@ export function Help({visible}) {
                     <div className="helpnav">
                         {helptabs.map((tab) => {
                             return (
-                                <button className="helptab" onClick={() => {setDisplayText(findText(tab.id))}} key={tab.id}>
+                                <button  className={activeTab === tab.id ? 'active' : 'infotab'} onClick={() => {setDisplayText(setTextAndTab(tab.id))}} key={tab.id}>
                                     {tab.name}
                                 </button>
                             )                    

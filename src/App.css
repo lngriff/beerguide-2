@@ -1,4 +1,4 @@
-.container {
+#container {
   width: 100%;
   height: 250vh;
   background-color: white;
@@ -6,14 +6,10 @@
   position: absolute;
 }
 
-.container svg {
+#container svg {
   display: block;
   width: 100%;
   height: 100%;
-}
-
-.helptab, .infotab {
-  padding: 5px;
 }
 
 .infobox {
@@ -38,5 +34,22 @@
   border-color: black;
   z-index: 1000;
   overflow-y: scroll;
+  float: right;
+}
+
+button {
+  padding: 5px;
+  background: none;
+  border-style: solid;
+  border-color: black;
+  border-width: 1px;
+}
+
+.active {
+  background-color: black;
+  color: white;
+}
+
+#min {
   float: right;
 }
